@@ -3,7 +3,7 @@
 
 重要的依赖:
 
-    pytorch                  pip install torch torchvision torchaudio    (如果想要能调用显卡的cuda, 请好好安装pytorch, 验证方法见下) 
+    torch                    pip install torch torchvision torchaudio    (如果想要能调用显卡的cuda, 请好好安装pytorch, 验证方法见下) 
     realesrgan               pip install realesrgan                      (先安装好torch)
     basicsr                  pip install basicsr
     
