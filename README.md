@@ -15,17 +15,11 @@ print(torch.cuda.is_available())
  
 其他依赖项
     imageio                    pip install imageio
-    
-    numpy                      pip install numpy
-    
-    loguru                     pip install loguru  
-    
-    PIL                        pip install pillow
-    
-    httpx                      pip install httpx
-    
-    nonebot2                   pip install nonebot2
-    
+    numpy                      pip install numpy    
+    loguru                     pip install loguru      
+    PIL                        pip install pillow    
+    httpx                      pip install httpx    
+    nonebot2                   pip install nonebot2    
     nonebot.adapters.onebot    pip install nonebot-adapter-onebot
 
 
