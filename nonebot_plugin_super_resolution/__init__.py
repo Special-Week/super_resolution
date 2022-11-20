@@ -15,6 +15,7 @@ from nonebot import on_command
 from nonebot.typing import T_State
 from realesrgan import RealESRGANer
 from nonebot.params import Arg, Depends
+from nonebot.permission import SUPERUSER
 from basicsr.archs.rrdbnet_arch import RRDBNet
 from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 
@@ -46,7 +47,7 @@ isRunning = False       # 正在运行时不允许再次运行
 
 # 响应器部分
 superResolution = on_command("超分", priority=5, block=True)    # 超分辨率响应器
-resetSuperResolution = on_command("重置超分", priority=5, block=True)    # 重置isRunning, 我也不知道那里有问题， isRunning有时切不回False， 留个响应器重置一下
+resetSuperResolution = on_command("重置超分", priority=5, block=True,permission=SUPERUSER)    # 重置isRunning, 我也不知道那里有问题， isRunning有时切不回False， 留个响应器重置一下
 
 # 工具
 def parse_image(key: str):
