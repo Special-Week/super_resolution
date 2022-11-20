@@ -1,5 +1,6 @@
 # super_resolution
 ## 本地的超分辨率工具
+借鉴~~抄~~自 https://github.com/zhenxun-org/nonebot_plugins_zhenxun_bot/tree/master/super_resolution
 
 重要的依赖:
 
