@@ -58,5 +58,8 @@ from basicsr.archs.rrdbnet_arch import RRDBNet
 from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 ```
     
-    
- 注释已补全, 详细运行逻辑请看注释
+###注:
+之前在python3.10.4的时候, 安装realesrgan还是basicsr的时候报错了, 当时没仔细研究, 不清楚对3.10.x的兼容性
+可以确认的是3.9.x以及3.8.x的python安装还挺顺利的
+
+####注释已补全, 详细运行逻辑请看注释
