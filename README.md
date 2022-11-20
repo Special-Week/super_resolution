@@ -59,6 +59,7 @@ from nonebot import on_command
 from nonebot.typing import T_State
 from realesrgan import RealESRGANer
 from nonebot.params import Arg, Depends
+from nonebot.permission import SUPERUSER
 from basicsr.archs.rrdbnet_arch import RRDBNet
 from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 ```
