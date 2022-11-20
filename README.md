@@ -14,6 +14,7 @@ print(torch.cuda.is_available())
 ```
  
 其他依赖项
+
     imageio                    pip install imageio
     numpy                      pip install numpy    
     loguru                     pip install loguru      
@@ -25,16 +26,11 @@ print(torch.cuda.is_available())
 
 我认为你应该有的依赖:
 
-    io
-    
-    time
-    
-    asyncio
-    
-    json
-    
-    pathlib
-    
+    io    
+    time    
+    asyncio    
+    json    
+    pathlib    
     typing
     
     
