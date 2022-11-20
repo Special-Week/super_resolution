@@ -3,7 +3,7 @@
 实测2c2g4m(腾讯云首单那款)的轻量级服务器能够正常运行
 
 部分~~大量~~代码借鉴~~抄~~于 https://github.com/zhenxun-org/nonebot_plugins_zhenxun_bot/tree/master/super_resolution
-> <span class="spoiler">大量代码抄自</span>
+> <p hidden>大量代码抄自</p>
 
 重要的依赖:
 
