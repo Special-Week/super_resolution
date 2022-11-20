@@ -3,14 +3,15 @@
 
 重要的依赖:
 
-    pytorch                  pip install torch torchvision torchaudio    (如果想要能调用显卡的cuda, 请好好安装pytorch, 验证方法:打开python解释器, 
-```
+    pytorch                  pip install torch torchvision torchaudio    (如果想要能调用显卡的cuda, 请好好安装pytorch, 验证方法见下) 
+    realesrgan
+    basicsr
+    
+    
+```python
 import torch
 print(torch.cuda.is_available()) 
 ```
-    realesrgan
-    basicsr
- 
  
 其他依赖项
     imageio
