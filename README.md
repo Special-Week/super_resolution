@@ -1,5 +1,5 @@
 # super_resolution
-## 利用本地算力的超分辨率工具
+## 利用本地算力的超分辨率工具(二次元图片)
 实测2c2g4m(腾讯云首单那款)的轻量级服务器能够正常运行
 
 > 部分~~大量~~代码借鉴~~抄~~于 https://github.com/zhenxun-org/nonebot_plugins_zhenxun_bot/tree/master/super_resolution
