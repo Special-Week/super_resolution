@@ -7,7 +7,8 @@
 
 重要的依赖:
 
-    torch                    pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117    (如果想要能调用显卡的cuda, 请好好安装pytorch, 验证方法见下) 
+    torch                    pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116    
+    (如果想要能调用显卡的cuda, 请好好安装pytorch, 官网https://pytorch.org/,  验证方法见下) 
     realesrgan               pip install realesrgan                      (先安装好torch)
     basicsr                  pip install basicsr
     
