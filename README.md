@@ -7,7 +7,7 @@
     realesrgan               pip install realesrgan                      (先安装好torch)
     basicsr                  pip install basicsr
     
-    
+验证cuda能否调用, 返回False | True
 ```python
 import torch
 print(torch.cuda.is_available()) 
