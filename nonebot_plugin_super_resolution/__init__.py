@@ -74,7 +74,11 @@ async def _(img: Message = Arg("img")):
     img_url = get_message_img(img)[0]   # 获取图片url
     await superResolution.send("开始处理图片...")                       # 发送消息
     async with AsyncClient() as client:
-        re = await client.get(img_url)                                 # 下载图片
+        try:
+            re = await client.get(img_url)                             # 尝试下载图片
+        except:
+            isRunning = False                                          # 结束
+            await superResolution.finish("下载图片失败...")             
         if re.status_code == 200:                                      # 下载成功 
             image = IMG.open(BytesIO(re.content))                      # 打开图片
         else:                                                          # 下载失败
