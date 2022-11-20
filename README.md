@@ -68,8 +68,6 @@ from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 
 
 
-#### 注释已补全, 详细运行逻辑请看注释
+> 注释已补全, 详细运行逻辑请看注释
 
-
-
-##### 还有一件事, 因为GIF是一帧一帧处理的大一点的gif可能要处理很久, 所以我把gif部分注释了, 想用可以手动解除那一部分的注释, 并且把紧跟着的finish注释掉
+> 还有一件事, 因为GIF是一帧一帧处理的大一点的gif可能要处理很久, 所以我把gif部分注释了, 想用可以手动解除那一部分的注释, 并且把紧跟着的finish注释掉
