@@ -15,7 +15,6 @@ from nonebot import on_command
 from nonebot.typing import T_State
 from realesrgan import RealESRGANer
 from nonebot.params import Arg, Depends
-from nonebot.permission import SUPERUSER
 from basicsr.archs.rrdbnet_arch import RRDBNet
 from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 
@@ -47,7 +46,7 @@ isRunning = False       # 正在运行时不允许再次运行
 
 # 响应器部分
 superResolution = on_command("超分", priority=5, block=True)    # 超分辨率响应器
-resetSuperResolution = on_command("重置超分", priority=5, block=True,permission=SUPERUSER)    # 重置isRunning, 我也不知道那里有问题， isRunning有时切不回False， 留个响应器重置一下
+resetSuperResolution = on_command("重置超分", priority=5, block=True)    # 重置isRunning, 我也不知道那里有问题， isRunning有时切不回False， 留个响应器重置一下
 
 # 工具
 def parse_image(key: str):
@@ -77,11 +76,15 @@ async def _(img: Message = Arg("img")):
     async with AsyncClient() as client:
         try:
             re = await client.get(img_url)                             # 尝试下载图片
-        except:
+        except Exception as e:
             isRunning = False                                          # 结束
-            await superResolution.finish("下载图片失败...")             
+            await superResolution.finish(f"下载图片失败...错误信息:{str(e)}")             
         if re.status_code == 200:                                      # 下载成功 
-            image = IMG.open(BytesIO(re.content))                      # 打开图片
+            try:
+                image = IMG.open(BytesIO(re.content))                      # 打开图片
+            except Exception as e:
+                isRunning = False                                          # 重置isRunning 
+                await superResolution.finish(f"图片打开失败...错误信息{str(e)}")
         else:                                                          # 下载失败
             isRunning = False                                          # 重置isRunning 
             await superResolution.finish("图片下载失败...")             # 结束
@@ -108,9 +111,9 @@ async def _(img: Message = Arg("img")):
         image_array = np.array(image)                       # 转换为numpy数组
         try:
             output, _ = await loop.run_in_executor(None, upsampler.enhance, image_array, 2)     # 尝试超分
-        except:                                                 # 超分失败
+        except Exception as e:                                                 # 超分失败
             isRunning = False                                   # 重置isRunning并且结束响应器
-            await superResolution.finish("超分失败...可能服务器爆内存了")
+            await superResolution.finish(f"超分失败...这是抛出的异常：{str(e)}")
         img = IMG.fromarray(output)                 # 转换为PIL图片     
         img.save(result, format='PNG')  # format: PNG / JPEG
     end = time.time()                                   # 计时结束
@@ -125,7 +128,7 @@ async def _():
     isRunning = False
     await resetSuperResolution.finish("重置成功！")
 
-# 工具
+# 工具, 获取图片url
 def get_message_img(data: Union[str, Message]) -> List[str]:
     img_list = []
     if isinstance(data, str):
